@@ -32,13 +32,13 @@ def extract_text_api(request):
     if image_url:
         decoded_image_url = unquote(image_url)
         response = requests.get(decoded_image_url)
-        
+        i=0
         if response.status_code == 200:
             image = Image.open(BytesIO(response.content))
             extracted_text = pytesseract.image_to_string(image)
 
             text_lines = extracted_text.split('\n')
-            text_dict = {f'line_{i + 1}': line.strip() for i, line in enumerate(text_lines) if line.strip()}
+            text_dict = {f'{i}': line.strip() for i, line in enumerate(text_lines) if line.strip()}
 
             return JsonResponse(text_dict)
         else:
