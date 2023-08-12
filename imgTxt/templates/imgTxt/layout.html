@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Text Extractor</title>
+</head>
+<body>
+    <!-- <h1>Image Text Extractor</h1> -->
+    <form method="post" action="{% url 'extract_text_from_image' %}">
+        {% csrf_token %}
+        <label for="image_url">Image URL:</label>
+        <input type="url" name="image_url" required>
+        <button type="submit">Extract Text</button>
+    </form>
+</body>
+</html>

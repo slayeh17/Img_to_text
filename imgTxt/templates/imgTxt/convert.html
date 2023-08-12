@@ -1,0 +1,8 @@
+{% extends "imgTxt/layout.html" %}
+{% block body %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)">
+        <input type="submit" value="">
+    </form>
+{% endblock %}
